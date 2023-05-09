@@ -1,12 +1,6 @@
 #!/bin/bash
 echo ""
-echo "██████╗ ██████╗ ███████╗███████╗███████╗    ████████╗██╗ ██████╗██╗  ██╗███████╗████████╗"
-echo "██╔══██╗██╔══██╗██╔════╝██╔════╝██╔════╝    ╚══██╔══╝██║██╔════╝██║ ██╔╝██╔════╝╚══██╔══╝"
-echo "██████╔╝██████╔╝█████╗  ███████╗███████╗       ██║   ██║██║     █████╔╝ █████╗     ██║   "
-echo "██╔═══╝ ██╔══██╗██╔══╝  ╚════██║╚════██║       ██║   ██║██║     ██╔═██╗ ██╔══╝     ██║   "
-echo "██║     ██║  ██║███████╗███████║███████║       ██║   ██║╚██████╗██║  ██╗███████╗   ██║   "
-echo "╚═╝     ╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝       ╚═╝   ╚═╝ ╚═════╝╚═╝  ╚═╝╚══════╝   ╚═╝   "
-echo " "
+
 echo "ATUALIZANDO PARA A VERSÃO MAIS RECENTE..."
 echo " "
 
@@ -35,9 +29,9 @@ echo " "
 
 sleep 2
 
-sudo rm -rf node_modules
+rm -rf node_modules
 npm install
-sudo rm -rf dist
+rm -rf dist
 npm run build
 
 echo " "
@@ -88,7 +82,7 @@ echo " "
 
 sleep 2
 
-sudo rm -rf node_modules
+rm -rf node_modules
 npm install
 rm -rf build
 npm run build
@@ -100,6 +94,7 @@ echo " "
 sleep 2
 
 pm2 restart all
+
 
 echo " "
 echo "PRESS TICKET ATUALIZADO COM SUCESSO!!!"

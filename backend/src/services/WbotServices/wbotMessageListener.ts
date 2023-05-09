@@ -253,7 +253,7 @@ const verifyQueue = async (
     const horatermino = hhtermino + mmtermino;
 
     if (hora < horainicio || hora > horatermino) {
-      const body = formatBody(`\u200e${choosenQueue.absenceMessage}`, ticket);
+      const body = formatBody(`\u200f${choosenQueue.absenceMessage}`, ticket);
       const debouncedSentMessage = debounce(
         async () => {
           const sentMessage = await wbot.sendMessage(
@@ -276,7 +276,7 @@ const verifyQueue = async (
       const chat = await msg.getChat();
       await chat.sendStateTyping();
 
-      const body = formatBody(`\u200e${choosenQueue.greetingMessage}`, ticket);
+      const body = formatBody(`\u200f${choosenQueue.greetingMessage}`, ticket);
 
       const sentMessage = await wbot.sendMessage(
         `${contact.number}@c.us`,
@@ -305,7 +305,7 @@ const verifyQueue = async (
       }
     });
 
-    const body = formatBody(`\u200e${greetingMessage}\n\n${options}`, ticket);
+    const body = formatBody(`\u200f${greetingMessage}\n\n${options}`, ticket);
 
     const debouncedSentMessage = debounce(
       async () => {
@@ -400,7 +400,7 @@ const handleMessage = async (
     if (msg.fromMe) {
       // messages sent automatically by wbot have a special character in front of it
       // if so, this message was already been stored in database;
-      if (/\u200e/.test(msg.body[0])) return;
+      if (/\u200f/.test(msg.body[0])) return;
 
       // media messages sent from me from cell phone, first comes with "hasMedia = false" and type = "image/ptt/etc"
       // in this case, return and let this message be handled by "media_uploaded" event, when it will have "hasMedia = true"
@@ -574,7 +574,7 @@ const handleMessage = async (
     if (msg.type === "call_log" && callSetting === "disabled") {
       const sentMessage = await wbot.sendMessage(
         `${contact.number}@c.us`,
-        "*Mensagem Automática:*\nAs chamadas de voz e vídeo estão desabilitas para esse WhatsApp, favor enviar uma mensagem de texto. Obrigado"
+        "*הודעות אוטומטיות:*\nשיחות קוליות מושבתות עבור WhatsApp זה, אנא שלח הודעת טקסט. תודה"
       );
       await verifyMessage(sentMessage, ticket, contact);
     }
