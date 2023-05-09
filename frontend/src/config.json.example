@@ -9,7 +9,7 @@
                     "secondary": "#F50057"
                 },
                 "toolbar": {
-                    "background": "linear-gradient(to right, #6B62FE, #f50057)"
+                    "background": "linear-gradient(to right, #1B6885, #1B6885)"
                 },
                 "menuItens": "#ffffff",
                 "sub": "#ffffff",
@@ -31,6 +31,7 @@
                 },
                 "toolbar": {
                     "background": "linear-gradient(to right, #52d869, #ff9100)"
+                                   linear-gradient(to right, #F04405, #F04405)
                 },
                 "menuItens": "#181d22",
                 "sub": "#181d22",
