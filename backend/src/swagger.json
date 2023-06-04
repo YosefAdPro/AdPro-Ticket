@@ -1,88 +1,89 @@
 {
-    openapi: "3.0.0",
-    info: {
-    title: "API DOC",
-    description: "תיעוד API לשליחת הודעות ומדיה.",
-    version: "1.0.0"
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Docs AdPro WMA",
+        "description": "API documentation for sending messages and media.",
+        "version": "1.0.0"
     },
-    servers: [
-    {
-    url: "https://devwt.adpronet.com",
-    description: "API"
-    }
+    "servers": [
+        {
+            "url": "https://api-dev.adpronet.com",
+            "description": "API WMA"
+        }
     ],
-    paths: {
-    /api/messages/send: {
-    post: {
-    summary: "Sending Messages",
-    description: "Messaging",
-    tags: [
-    "SEND"
-    ],
-    security: [
-    {
-    bearerAuth: [ ]
-    }
-    ],
-    requestBody: {
-    content: {
-    application/json: {
-    schema: {
-    $ref: "#components/schemas/SEND"
+    "paths": {
+        "/api/messages/send": {
+            "post": {
+                "summary": "Messaging",
+                "description": "Sending Messages",
+                "tags": [
+                    "SEND"
+                ],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#components/schemas/SEND"
+                            },
+                            "examples": {
+                                "SEND": {
+                                    "value": {
+                                        "number": "972540000000",
+                                        "body": "API Test Message"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#components/schemas/SEND"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized access!"
+                    },
+                    "500": {
+                        "description": "Internal error!"
+                    }
+                }
+            }
+        }
+        
     },
-    examples: {
-    SEND: {
-    value: {
-    number: "972540000000",
-    body: "API Test Message"
+    "components": {
+        "schemas": {
+            "SEND": {
+                "type": "object",
+                "properties": {
+                    "number": {
+                        "type": "number"
+                    },
+                    "body": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "scheme": "bearer",
+                "bearerFormat": "JWT"
+            }
+        }
     }
-    }
-    }
-    }
-    }
-    },
-    responses: {
-    200: {
-    description: "OK",
-    content: {
-    application/json: {
-    schema: {
-    type: "object",
-    $ref: "#components/schemas/SEND"
-    }
-    }
-    }
-    },
-    401: {
-    description: "Unauthorized access!"
-    },
-    500: {
-    description: "Internal error!"
-    }
-    }
-    }
-    }
-    },
-    components: {
-    schemas: {
-    SEND: {
-    type: "object",
-    properties: {
-    number: {
-    type: "number"
-    },
-    body: {
-    type: "string"
-    }
-    }
-    }
-    },
-    securitySchemes: {
-    bearerAuth: {
-    type: "http",
-    scheme: "bearer",
-    bearerFormat: "JWT"
-    }
-    }
-    }
-    }
+}
