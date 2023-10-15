@@ -121,7 +121,7 @@ sudo apt-get install -y nodejs
 20. Instalação de libs
 
 ```bash
-sudo apt install apt-transport-https ca-certificates curl software-properties-common git
+sudo apt install apt-transport-https ca-certificates curl software-properties-common git ffmpeg
 ```
 
 21. Atualizando
@@ -174,14 +174,20 @@ FRONTEND_URL=https://ticket.pressticket.com.br
 PORT=8080  
 PROXY_PORT=443  
 CHROME_BIN=/usr/bin/google-chrome-stable  
+
 DB_DIALECT=mysql  
 DB_HOST=localhost  
 DB_TIMEZONE=-03:00   
 DB_USER=root  
 DB_PASS=  
-DB_NAME=pressticket  
+DB_NAME=pressticket
+
 USER_LIMIT=3  
 CONNECTIONS_LIMIT=1
+
+PM2_FRONTEND=0
+PM2_BACKEND=1
+
 JWT_SECRET=
 JWT_REFRESH_SECRET=
 ```
